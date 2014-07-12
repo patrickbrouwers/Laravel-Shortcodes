@@ -3,6 +3,10 @@ Laravel-Shortcodes
 
 Wordpress like shortcodes for Laravel 4.2.
 
+```php
+[b class="bold"]Bold text[/b]
+```
+
 #Installation
 
 Require this package in your `composer.json` and update composer.
