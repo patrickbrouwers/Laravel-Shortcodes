@@ -1,0 +1,34 @@
+{
+    "name": "brouwers/shortcodes",
+    "description": "Wordpress like shortcodes for Laravel 4.2",
+    "license": "LGPL",
+    "keywords": ["laravel", "wordpress", "shortcodes"],
+    "authors": [
+        {
+            "name": "Patrick Brouwers",
+            "email": "patrickbrouwers@live.nl"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0",
+        "mockery/mockery": "~0.9",
+        "orchestra/testbench": "~2.2.0@dev"
+    },
+    "autoload": {
+        "classmap": [
+            "tests/TestCase.php"
+        ],
+        "psr-0": {
+            "Brouwers\\Shortcodes": "src/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git://github.com/orchestral/phpseclib.git"
+        }
+    ]
+}
