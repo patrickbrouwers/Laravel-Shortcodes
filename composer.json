@@ -1,7 +1,7 @@
 {
     "name": "brouwers/shortcodes",
     "description": "Wordpress like shortcodes for Laravel 4.2",
-    "license": "LGPL",
+    "license": "BSD-3-Clause",
     "keywords": ["laravel", "wordpress", "shortcodes"],
     "authors": [
         {
