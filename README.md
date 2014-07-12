@@ -26,7 +26,7 @@ You can use the facade for shorter code. Add this to your aliases:
 The class is bound to the ioC as `shortcode`
 
 ```php
-shortcode = App::make('shortcode');
+$shortcode = App::make('shortcode');
 ```
 
 # Usage
