@@ -10,6 +10,8 @@ Wordpress like shortcodes for Laravel 4.2.
   [tab]Tab 1[/tab]
   [tab]Tab 2[/tab]
 [/tabs]
+
+[user id="1" display="name"]
 ```
 
 #Installation
