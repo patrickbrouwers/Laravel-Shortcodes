@@ -5,6 +5,11 @@ Wordpress like shortcodes for Laravel 4.2.
 
 ```php
 [b class="bold"]Bold text[/b]
+
+[tabs]
+  [tab]Tab 1[/tab]
+  [tab]Tab 2[/tab]
+[/tabs]
 ```
 
 #Installation
