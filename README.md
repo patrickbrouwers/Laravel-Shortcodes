@@ -140,17 +140,18 @@ Shortcode::register('b', 'BoldShortcode@custom');
 
 ```
 
-### Class with custom method
+### Register helpers
+
+If you only want to show the html attribute when the attribute is provided in the shortcode, you can use `$shortcode->get($attributeKey, $fallbackValue = null)`
 
 ```php
 class BoldShortcode {
 
-  public function custom($shortcode, $content, $compiler, $name)
+  public function register($shortcode, $content, $compiler, $name)
   {
-    return '<strong class="'. $shortcode->class .'">' . $content . '</strong>';
+    return '<strong '. $shortcode->get('class', 'default') .'>' . $content . '</strong>';
   }
 }
 
-Shortcode::register('b', 'BoldShortcode@custom');
 
 ```
