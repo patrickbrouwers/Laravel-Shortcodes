@@ -14,6 +14,8 @@ Wordpress like shortcodes for Laravel 4.2.
 [user id="1" display="name"]
 ```
 
+> If you are looking for BBcodes, see: https://github.com/patrickbrouwers/Laravel-BBcodes
+
 [![Build Status](https://travis-ci.org/patrickbrouwers/Laravel-Shortcodes.svg?branch=master)](https://travis-ci.org/patrickbrouwers/Laravel-Shortcodes)
 [![Latest Stable Version](https://poser.pugx.org/brouwers/shortcodes/v/stable.png)](https://packagist.org/packages/brouwers/shortcodes) [![Total Downloads](https://poser.pugx.org/brouwers/shortcodes/downloads.png)](https://packagist.org/packages/brouwers/shortcodes)  [![License](https://poser.pugx.org/brouwers/shortcodes/license.png)](https://packagist.org/packages/brouwers/shortcodes)
 [![Monthly Downloads](https://poser.pugx.org/brouwers/shortcodes/d/monthly.png)](https://packagist.org/packages/brouwers/shortcodes)
