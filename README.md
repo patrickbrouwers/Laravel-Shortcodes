@@ -139,3 +139,18 @@ class BoldShortcode {
 Shortcode::register('b', 'BoldShortcode@custom');
 
 ```
+
+### Class with custom method
+
+```php
+class BoldShortcode {
+
+  public function custom($shortcode, $content, $compiler, $name)
+  {
+    return '<strong class="'. $shortcode->class .'">' . $content . '</strong>';
+  }
+}
+
+Shortcode::register('b', 'BoldShortcode@custom');
+
+```
