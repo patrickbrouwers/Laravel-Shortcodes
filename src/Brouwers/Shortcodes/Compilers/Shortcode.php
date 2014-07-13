@@ -34,6 +34,19 @@ class Shortcode {
     }
 
     /**
+     * Get html attribute
+     * @param  [type] $attribute [description]
+     * @return [type]            [description]
+     */
+    public function get($attribute)
+    {
+        $value = $this->{$attribute};
+
+        if(!is_null($value))
+            return $attribute . '="' . $value . '"';
+    }
+
+    /**
      * Get shortcode name
      * @return [type] [description]
      */
