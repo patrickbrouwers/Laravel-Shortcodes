@@ -4,7 +4,7 @@ class Shortcode {
 
     /**
      * Shortcode name
-     * @var [type]
+     * @var string
      */
     protected $name;
 
@@ -16,15 +16,15 @@ class Shortcode {
 
     /**
      * Shortcode content
-     * @var [type]
+     * @var string
      */
     public $content;
 
     /**
      * Constructor
-     * @param [type] $name       [description]
-     * @param array  $attributes [description]
-     * @param [type] $content    [description]
+     * @param string $name
+     * @param array  $attributes
+     * @param string $content
      */
     public function __construct($name, $attributes = array(), $content)
     {
@@ -35,20 +35,26 @@ class Shortcode {
 
     /**
      * Get html attribute
-     * @param  [type] $attribute [description]
-     * @return [type]            [description]
+     * @param  string $attribute
+     * @return string|null
      */
-    public function get($attribute)
+    public function get($attribute, $fallback = null)
     {
         $value = $this->{$attribute};
 
         if(!is_null($value))
+        {
             return $attribute . '="' . $value . '"';
+        }
+        elseif(!is_null($fallback))
+        {
+            return $attribute . '="' . $fallback . '"';
+        }
     }
 
     /**
      * Get shortcode name
-     * @return [type] [description]
+     * @return string
      */
     public function getName()
     {
@@ -57,7 +63,7 @@ class Shortcode {
 
     /**
      * Get shortcode attributes
-     * @return [type] [description]
+     * @return string
      */
     public function getContent()
     {
@@ -66,7 +72,7 @@ class Shortcode {
 
     /**
      * Return array of attributes;
-     * @return [type] [description]
+     * @return array
      */
     public function toArray()
     {
@@ -75,8 +81,8 @@ class Shortcode {
 
     /**
      * Dynamically get attributes
-     * @param  [type] $param [description]
-     * @return [type]        [description]
+     * @param  string $param
+     * @return string|null
      */
     public function __get($param)
     {
