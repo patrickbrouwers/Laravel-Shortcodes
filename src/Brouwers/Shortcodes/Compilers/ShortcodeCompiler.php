@@ -196,7 +196,7 @@ class ShortcodeCompiler {
             {
                 // return class and method
                 return array(
-                    new $class,
+                    app($class),
                     $method
                 );
             }
