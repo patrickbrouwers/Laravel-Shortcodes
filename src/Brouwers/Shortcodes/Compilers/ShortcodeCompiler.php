@@ -117,13 +117,14 @@ class ShortcodeCompiler {
     {
         // Compile the shortcode
         $compiled = $this->compileShortcode($matches);
+        $name = $compiled->getName();
 
         // Render the shortcode through the callback
-        return call_user_func_array($this->getCallback(), array(
+        return call_user_func_array($this->getCallback($name), array(
             $compiled,
             $compiled->getContent(),
             $this,
-            $compiled->getName()
+            $name
         ));
     }
 
@@ -180,10 +181,10 @@ class ShortcodeCompiler {
      * @param  string  $name
      * @return callable|array
      */
-    public function getCallback()
+    public function getCallback($name)
     {
         // Get the callback from the shortcodes array
-        $callback = $this->registered[$this->getName()];
+        $callback = $this->registered[$name];
 
         // if is a string
         if(is_string($callback))
