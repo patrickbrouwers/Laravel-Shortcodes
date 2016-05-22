@@ -3,11 +3,11 @@
 use ArrayAccess;
 use Closure;
 use Illuminate\Support\MessageBag;
+use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\View as IlluminateView;
 use Illuminate\View\Engines\EngineInterface;
 use Brouwers\Shortcodes\Compilers\ShortcodeCompiler;
 use Illuminate\Support\Contracts\ArrayableInterface as Arrayable;
-use Illuminate\Support\Contracts\RenderableInterface as Renderable;
 
 class View extends IlluminateView implements ArrayAccess, Renderable {
 

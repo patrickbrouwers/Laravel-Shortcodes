@@ -14,7 +14,6 @@ class ShortcodesServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('brouwers/shortcodes');
 		$this->enableCompiler();
 	}
 
@@ -50,7 +49,7 @@ class ShortcodesServiceProvider extends ServiceProvider {
 	 */
 	public function registerShortcodeCompiler()
 	{
-		$this->app->bindShared('shortcode.compiler', function($app)
+		$this->app->singleton('shortcode.compiler', function($app)
 		{
 			return new ShortcodeCompiler();
 		});
@@ -62,7 +61,7 @@ class ShortcodesServiceProvider extends ServiceProvider {
 	 */
 	public function registerShortcode()
 	{
-		$this->app->bindShared('shortcode', function($app) {
+		$this->app->singleton('shortcode', function($app) {
 			return new Shortcode($app['shortcode.compiler']);
 		});
 	}
@@ -73,7 +72,7 @@ class ShortcodesServiceProvider extends ServiceProvider {
 	 */
 	public function registerView()
 	{
-		$this->app->bindShared('view', function($app)
+		$this->app->singleton('view', function($app)
 		{
 			// Next we need to grab the engine resolver instance that will be used by the
 			// environment. The resolver will be used by an environment to get each of
