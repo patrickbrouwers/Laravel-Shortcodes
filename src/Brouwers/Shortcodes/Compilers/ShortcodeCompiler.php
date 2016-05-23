@@ -1,6 +1,6 @@
 <?php namespace Brouwers\Shortcodes\Compilers;
 
-use Str;
+use Illuminate\Support\Str;
 
 class ShortcodeCompiler {
 

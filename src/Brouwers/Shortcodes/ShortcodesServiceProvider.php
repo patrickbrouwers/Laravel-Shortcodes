@@ -10,7 +10,6 @@ class ShortcodesServiceProvider extends ServiceProvider {
 
 	/**
 	 * Boot the package
-	 * @return [type] [description]
 	 */
 	public function boot()
 	{
@@ -19,7 +18,6 @@ class ShortcodesServiceProvider extends ServiceProvider {
 
 	/**
 	 * Enable the compiler
-	 * @return [type] [description]
 	 */
 	public function enableCompiler()
 	{
@@ -45,7 +43,6 @@ class ShortcodesServiceProvider extends ServiceProvider {
 
 	/**
 	 * Register short code compiler
-	 * @return [type] [description]
 	 */
 	public function registerShortcodeCompiler()
 	{
@@ -57,7 +54,6 @@ class ShortcodesServiceProvider extends ServiceProvider {
 
 	/**
 	 * Register the shortcode
-	 * @return [type] [description]
 	 */
 	public function registerShortcode()
 	{
@@ -68,7 +64,6 @@ class ShortcodesServiceProvider extends ServiceProvider {
 
 	/**
 	 * Register Laravel view
-	 * @return [type] [description]
 	 */
 	public function registerView()
 	{
