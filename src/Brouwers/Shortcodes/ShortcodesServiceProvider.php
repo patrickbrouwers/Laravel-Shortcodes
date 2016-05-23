@@ -10,17 +10,14 @@ class ShortcodesServiceProvider extends ServiceProvider {
 
 	/**
 	 * Boot the package
-	 * @return [type] [description]
 	 */
 	public function boot()
 	{
-		$this->package('brouwers/shortcodes');
 		$this->enableCompiler();
 	}
 
 	/**
 	 * Enable the compiler
-	 * @return [type] [description]
 	 */
 	public function enableCompiler()
 	{
@@ -46,11 +43,10 @@ class ShortcodesServiceProvider extends ServiceProvider {
 
 	/**
 	 * Register short code compiler
-	 * @return [type] [description]
 	 */
 	public function registerShortcodeCompiler()
 	{
-		$this->app->bindShared('shortcode.compiler', function($app)
+		$this->app->singleton('shortcode.compiler', function($app)
 		{
 			return new ShortcodeCompiler();
 		});
@@ -58,22 +54,20 @@ class ShortcodesServiceProvider extends ServiceProvider {
 
 	/**
 	 * Register the shortcode
-	 * @return [type] [description]
 	 */
 	public function registerShortcode()
 	{
-		$this->app->bindShared('shortcode', function($app) {
+		$this->app->singleton('shortcode', function($app) {
 			return new Shortcode($app['shortcode.compiler']);
 		});
 	}
 
 	/**
 	 * Register Laravel view
-	 * @return [type] [description]
 	 */
 	public function registerView()
 	{
-		$this->app->bindShared('view', function($app)
+		$this->app->singleton('view', function($app)
 		{
 			// Next we need to grab the engine resolver instance that will be used by the
 			// environment. The resolver will be used by an environment to get each of
