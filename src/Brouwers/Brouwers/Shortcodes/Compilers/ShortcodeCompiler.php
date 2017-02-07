@@ -2,7 +2,7 @@
 
 namespace Brouwers\Shortcodes\Compilers;
 
-use Str;
+use Illuminate\Support\Str;
 
 class ShortcodeCompiler
 {
@@ -55,8 +55,9 @@ class ShortcodeCompiler
     public function compile($value)
     {
         // Only continue is shortcodes have been registered
-        if(!$this->enabled || !$this->hasShortcodes())
+        if (!$this->enabled || !$this->hasShortcodes()) {
             return $value;
+        }
 
         // Set empty result
         $result = '';
@@ -64,8 +65,7 @@ class ShortcodeCompiler
         // Here we will loop through all of the tokens returned by the Zend lexer and
         // parse each one into the corresponding valid PHP. We will then have this
         // template as the correctly rendered PHP that can be rendered natively.
-        foreach (token_get_all($value) as $token)
-        {
+        foreach (token_get_all($value) as $token) {
             $result .= is_array($token) ? $this->parseToken($token) : $token;
         }
 
@@ -90,8 +90,7 @@ class ShortcodeCompiler
     {
         list($id, $content) = $token;
 
-        if ($id == T_INLINE_HTML)
-        {
+        if ($id == T_INLINE_HTML) {
             $content = $this->renderShortcodes($content);
         }
 
@@ -120,14 +119,13 @@ class ShortcodeCompiler
     {
         // Compile the shortcode
         $compiled = $this->compileShortcode($matches);
-        $name = $compiled->getName();
 
         // Render the shortcode through the callback
-        return call_user_func_array($this->getCallback($name), array(
+        return call_user_func_array($this->getCallback(), array(
             $compiled,
             $compiled->getContent(),
             $this,
-            $name
+            $compiled->getName()
         ));
     }
 
@@ -184,20 +182,18 @@ class ShortcodeCompiler
      * @param  string  $name
      * @return callable|array
      */
-    public function getCallback($name)
+    public function getCallback()
     {
         // Get the callback from the shortcodes array
-        $callback = $this->registered[$name];
+        $callback = $this->registered[$this->getName()];
 
         // if is a string
-        if(is_string($callback))
-        {
+        if (is_string($callback)) {
             // Parse the callback
             list($class, $method) = Str::parseCallback($callback, 'register');
 
             // If the class exist
-            if(class_exists($class))
-            {
+            if (class_exists($class)) {
                 // return class and method
                 return array(
                     app($class),
