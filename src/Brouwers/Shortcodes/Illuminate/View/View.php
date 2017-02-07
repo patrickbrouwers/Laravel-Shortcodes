@@ -1,4 +1,6 @@
-<?php namespace Brouwers\ShortCodes\Illuminate\View;
+<?php
+
+namespace Brouwers\ShortCodes\Illuminate\View;
 
 use ArrayAccess;
 use Closure;
@@ -9,7 +11,8 @@ use Brouwers\Shortcodes\Compilers\ShortcodeCompiler;
 use Illuminate\Support\Contracts\ArrayableInterface as Arrayable;
 use Illuminate\Support\Contracts\RenderableInterface as Renderable;
 
-class View extends IlluminateView implements ArrayAccess, Renderable {
+class View extends IlluminateView implements ArrayAccess, Renderable
+{
 
     /**
      * Short code engine resolver

@@ -1,6 +1,9 @@
-<?php namespace Brouwers\Shortcodes\Compilers;
+<?php
 
-class Shortcode {
+namespace Brouwers\Shortcodes\Compilers;
+
+class Shortcode
+{
 
     /**
      * Shortcode name
@@ -42,12 +45,9 @@ class Shortcode {
     {
         $value = $this->{$attribute};
 
-        if(!is_null($value))
-        {
+        if (!is_null($value)) {
             return $attribute . '="' . $value . '"';
-        }
-        elseif(!is_null($fallback))
-        {
+        } else if(!is_null($fallback)) {
             return $attribute . '="' . $fallback . '"';
         }
     }

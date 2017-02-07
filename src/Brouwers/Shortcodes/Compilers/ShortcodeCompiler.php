@@ -1,8 +1,11 @@
-<?php namespace Brouwers\Shortcodes\Compilers;
+<?php
+
+namespace Brouwers\Shortcodes\Compilers;
 
 use Str;
 
-class ShortcodeCompiler {
+class ShortcodeCompiler
+{
 
     /**
      * Enabled state
@@ -219,34 +222,21 @@ class ShortcodeCompiler {
         $pattern = '/(\w+)\s*=\s*"([^"]*)"(?:\s|$)|(\w+)\s*=\s*\'([^\']*)\'(?:\s|$)|(\w+)\s*=\s*([^\s\'"]+)(?:\s|$)|"([^"]*)"(?:\s|$)|(\S+)(?:\s|$)/';
 
         // Match
-        if(preg_match_all($pattern, preg_replace("/[\x{00a0}\x{200b}]+/u", " ", $text), $match, PREG_SET_ORDER))
-        {
-            foreach ($match as $m)
-            {
-                if (!empty($m[1]))
-                {
+        if (preg_match_all($pattern, preg_replace("/[\x{00a0}\x{200b}]+/u", " ", $text), $match, PREG_SET_ORDER)) {
+            foreach ($match as $m) {
+                if (!empty($m[1])) {
                     $attributes[strtolower($m[1])] = stripcslashes($m[2]);
-                }
-                elseif (!empty($m[3]))
-                {
+                } else if (!empty($m[3])) {
                     $attributes[strtolower($m[3])] = stripcslashes($m[4]);
-                }
-                elseif (!empty($m[5]))
-                {
+                } else if (!empty($m[5])) {
                     $attributes[strtolower($m[5])] = stripcslashes($m[6]);
-                }
-                elseif (isset($m[7]) and strlen($m[7]))
-                {
+                } else if (isset($m[7]) and strlen($m[7])) {
                     $attributes[] = stripcslashes($m[7]);
-                }
-                elseif (isset($m[8]))
-                {
+                } else if (isset($m[8])) {
                     $attributes[] = stripcslashes($m[8]);
                 }
             }
-        }
-        else
-        {
+        } else {
             $attributes = ltrim($text);
         }
 

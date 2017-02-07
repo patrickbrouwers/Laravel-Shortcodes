@@ -1,8 +1,11 @@
-<?php namespace Brouwers\Shortcodes\Facades;
+<?php
+
+namespace Brouwers\Shortcodes\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class Shortcode extends Facade {
+class Shortcode extends Facade
+{
 
     /**
      * Get the registered name of the component.
