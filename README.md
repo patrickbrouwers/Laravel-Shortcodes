@@ -51,7 +51,7 @@ $shortcode = App::make('shortcode');
 
 ## View compiling
 
-By default shortcode compiling is set to false inside the config. 
+By default shortcode compiling is set to false inside the config.
 
 ### withShortcodes()
 
@@ -109,18 +109,20 @@ Shortcode::register('b', function($shortcode, $content, $compiler, $name)
 {
   return '<strong class="'. $shortcode->class .'">' . $content . '</strong>';
 });
-  
+
 ```
 
 ### Default class
 
 ```php
-class BoldShortcode {
+class BoldShortcode
+{
 
   public function register($shortcode, $content, $compiler, $name)
   {
     return '<strong class="'. $shortcode->class .'">' . $content . '</strong>';
   }
+
 }
 
 Shortcode::register('b', 'BoldShortcode');
@@ -130,12 +132,14 @@ Shortcode::register('b', 'BoldShortcode');
 ### Class with custom method
 
 ```php
-class BoldShortcode {
+class BoldShortcode
+{
 
   public function custom($shortcode, $content, $compiler, $name)
   {
     return '<strong class="'. $shortcode->class .'">' . $content . '</strong>';
   }
+
 }
 
 Shortcode::register('b', 'BoldShortcode@custom');
@@ -147,12 +151,14 @@ Shortcode::register('b', 'BoldShortcode@custom');
 If you only want to show the html attribute when the attribute is provided in the shortcode, you can use `$shortcode->get($attributeKey, $fallbackValue = null)`
 
 ```php
-class BoldShortcode {
+class BoldShortcode
+{
 
   public function register($shortcode, $content, $compiler, $name)
   {
     return '<strong '. $shortcode->get('class', 'default') .'>' . $content . '</strong>';
   }
+
 }
 
 

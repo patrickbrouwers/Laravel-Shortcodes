@@ -1,8 +1,11 @@
-<?php namespace Brouwers\Shortcodes;
+<?php
+
+namespace Brouwers\Shortcodes;
 
 use Brouwers\Shortcodes\Compilers\ShortcodeCompiler;
 
-class Shortcode {
+class Shortcode
+{
 
     /**
      * Shortcode compiler

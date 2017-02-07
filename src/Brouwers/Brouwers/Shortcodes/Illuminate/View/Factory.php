@@ -1,4 +1,6 @@
-<?php namespace Brouwers\Shortcodes\Illuminate\View;
+<?php
+
+namespace Brouwers\Shortcodes\Illuminate\View;
 
 use Closure;
 use Illuminate\Events\Dispatcher;
@@ -7,7 +9,8 @@ use Illuminate\View\Engines\EngineResolver;
 use Illuminate\View\Factory as IlluminateViewFactory;
 use Brouwers\Shortcodes\Compilers\ShortcodeCompiler;
 
-class Factory extends IlluminateViewFactory {
+class Factory extends IlluminateViewFactory
+{
 
     /**
      * Short code engine resolver
